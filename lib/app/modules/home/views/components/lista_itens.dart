@@ -9,7 +9,7 @@ import 'package:cardapio/app/modules/home/controllers/home_controller.dart';
 import 'product_tile.dart';
 
 class ListaItens extends StatelessWidget {
-  final Category categoria;
+  final Categoria categoria;
 
   const ListaItens({
     Key? key,

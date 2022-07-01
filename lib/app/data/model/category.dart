@@ -8,7 +8,7 @@ import 'package:cardapio/app/data/model/item.dart';
 part 'category.g.dart';
 
 @HiveType(typeId: 1)
-class Category extends HiveObject {
+class Categoria extends HiveObject {
   @HiveField(0)
   final String id;
   @HiveField(1)
@@ -18,20 +18,20 @@ class Category extends HiveObject {
   @HiveField(3)
   List<Item> itens;
 
-  Category({
+  Categoria({
     required this.id,
     this.codigo,
     required this.nome,
     required this.itens,
   });
 
-  Category copyWith({
+  Categoria copyWith({
     String? id,
     String? codigo,
     String? nome,
     List<Item>? itens,
   }) {
-    return Category(
+    return Categoria(
       id: id ?? this.id,
       codigo: codigo ?? this.codigo,
       nome: nome ?? this.nome,
@@ -48,8 +48,8 @@ class Category extends HiveObject {
     };
   }
 
-  factory Category.fromMap(Map<String, dynamic> map) {
-    return Category(
+  factory Categoria.fromMap(Map<String, dynamic> map) {
+    return Categoria(
       id: map['id'] as String,
       codigo: map['codigo'] != null ? map['codigo'] as String : null,
       nome: map['nome'] as String,
@@ -63,18 +63,18 @@ class Category extends HiveObject {
 
   String toJson() => json.encode(toMap());
 
-  factory Category.fromJson(String source) => Category.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Categoria.fromJson(String source) => Categoria.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
-    return 'Category(id: $id, codigo: $codigo, nome: $nome, itens: $itens)';
+    return 'Categoria(id: $id, codigo: $codigo, nome: $nome, itens: $itens)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Category && other.id == id && other.codigo == codigo && other.nome == nome && listEquals(other.itens, itens);
+    return other is Categoria && other.id == id && other.codigo == codigo && other.nome == nome && listEquals(other.itens, itens);
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'package:cardapio/app/data/model/categoria.dart';
+import 'package:cardapio/app/data/model/category.dart';
 import 'package:cardapio/app/data/model/menu.dart';
 import 'package:cardapio/app/data/service/cardapio_service.dart';
 
@@ -16,11 +16,11 @@ class CardapioController extends GetxController {
     return await service.getCategorias(boxMenu: boxMenu);
   }
 
-  Future<Category?> getCategoriaHive({required int index}) async {
+  Future<Categoria?> getCategoriaHive({required int index}) async {
     return await service.getCategoriaHive(index: index);
   }
 
-  Future<List<Category>> getAllHive() async {
+  Future<List<Categoria>> getAllHive() async {
     return await service.getAllHive();
   }
 }

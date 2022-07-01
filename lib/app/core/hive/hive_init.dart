@@ -3,12 +3,12 @@ import 'dart:developer' as developer;
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'package:cardapio/app/data/model/category.dart';
 import 'package:cardapio/app/data/model/menu.dart';
 import 'package:cardapio/app/data/repository/cardapio_repository.dart';
 import 'package:cardapio/app/data/service/cardapio_service.dart';
 import 'package:cardapio/app/modules/home/controllers/cardapio_controller.dart';
 
-import '../../data/model/category.dart';
 import '../../data/model/item.dart';
 import '../constants.dart';
 
@@ -29,13 +29,13 @@ class HiveInit {
 
   static Future<void> registerAdapters() async {
     Hive.registerAdapter(ItemAdapter());
-    Hive.registerAdapter(CategoryAdapter());
+    Hive.registerAdapter(CategoriaAdapter());
     Hive.registerAdapter(MenuAdapter());
   }
 
   static Future<void> openBoxes() async {
-    Box<Category> boxCategoria = await Hive.openBox<Category>('categoria');
-    Get.put<Box<Category>>(
+    Box<Categoria> boxCategoria = await Hive.openBox<Categoria>('categoria');
+    Get.put<Box<Categoria>>(
       boxCategoria,
       tag: Constants.categoriaHive,
       permanent: true,
